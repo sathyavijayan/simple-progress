@@ -1,4 +1,4 @@
-(defproject simple-progress "0.1.4-SNAPSHOT"
+(defproject simple-progress "0.1.4"
   :description "Simple progressbar"
   :url         "https://github.com/bfontaine/simple-progress"
   :license {:name "Eclipse Public License"

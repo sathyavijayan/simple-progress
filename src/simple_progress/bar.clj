@@ -7,7 +7,7 @@
         prev-percent (int (/ (* (dec curr) 100) max*))]
 
     ;; don't re-print if the percentage didn't change (#1)
-    (when (not= percent prev-percent)
+    (when (or (not= percent prev-percent) (= 0 curr))
       (let [width (int (* percent 71/100))]
         (print
           (format
@@ -25,6 +25,9 @@
           dec* #(max (dec %) 0)
           setmax (fn[&_] max*)]
 
+      (print-bar @curr max*)
+      (flush)
+
       (fn bar
         ([] (bar :inc))
         ([action]
@@ -37,5 +40,5 @@
 
           (print-bar @curr max*)
           (flush)
-        
+
           @curr)))))
